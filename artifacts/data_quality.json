@@ -1,0 +1,12 @@
+{
+  "schema_check": "passed",
+  "row_count": 9,
+  "user_distribution_psi": 18.1992,
+  "movie_distribution_psi": 5.1796,
+  "drift_chart": "artifacts/drift_top_movies.png",
+  "notes": [
+    "Baseline = first half of events by time.",
+    "Current = second half of events by time.",
+    "PSI is used as a lightweight drift score."
+  ]
+}

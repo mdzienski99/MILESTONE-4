@@ -1,0 +1,7 @@
+{
+  "metric": "watched_any_recommended_within_30_minutes",
+  "numerator": 0,
+  "denominator": 15,
+  "success_rate": 0.0,
+  "note": "watch.jsonl exists but contains no valid watch events."
+}

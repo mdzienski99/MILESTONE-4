@@ -1,0 +1,16 @@
+﻿{}
+{"user_id": 1, "k": 5, "model": "popularity", "recommendations": [50, 172, 10, 90, 300], "event_ts": 1774906554.0877256, "source": "api"}
+{"user_id": 2, "k": 5, "model": "item_cf", "recommendations": [10, 300], "event_ts": 1774906558.0673146, "source": "api"}
+{"user_id": 3, "k": 5, "model": "popularity", "recommendations": [50, 172, 10, 90, 300], "event_ts": 1774906561.9464664, "source": "api"}
+{"user_id": 1, "k": 5, "model": "popularity", "recommendations": [50, 172, 10, 90, 300], "event_ts": 1774906566.0507467, "source": "api"}
+{"user_id": 2, "k": 5, "model": "item_cf", "recommendations": [10, 300], "event_ts": 1774906569.924656, "source": "api"}
+{"user_id": 3, "k": 5, "model": "popularity", "recommendations": [50, 172, 10, 90, 300], "event_ts": 1774906573.9099114, "source": "api"}
+{"user_id": 1, "k": 5, "model": "popularity", "recommendations": [50, 172, 10, 90, 300], "event_ts": 1774906579.3179696, "source": "api"}
+{"user_id": 2, "k": 5, "model": "item_cf", "recommendations": [10, 300], "event_ts": 1774906583.1499925, "source": "api"}
+{"user_id": 3, "k": 5, "model": "popularity", "recommendations": [50, 172, 10, 90, 300], "event_ts": 1774906586.7245343, "source": "api"}
+{"user_id": 1, "k": 5, "model": "popularity", "recommendations": [50, 172, 10, 90, 300], "event_ts": 1774906590.2188482, "source": "api"}
+{"user_id": 2, "k": 5, "model": "item_cf", "recommendations": [10, 300], "event_ts": 1774906593.8186078, "source": "api"}
+{"user_id": 3, "k": 5, "model": "popularity", "recommendations": [50, 172, 10, 90, 300], "event_ts": 1774906597.4453816, "source": "api"}
+{"user_id": 1, "k": 5, "model": "popularity", "recommendations": [50, 172, 10, 90, 300], "event_ts": 1774906603.2902532, "source": "api"}
+{"user_id": 2, "k": 5, "model": "item_cf", "recommendations": [10, 300], "event_ts": 1774906606.3420098, "source": "api"}
+{"user_id": 3, "k": 5, "model": "popularity", "recommendations": [50, 172, 10, 90, 300], "event_ts": 1774906609.3730214, "source": "api"}

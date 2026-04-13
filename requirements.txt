@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+prometheus-client
+pandas
+numpy
+scikit-learn
+joblib
+python-dotenv
+confluent-kafka
+matplotlib
+pandera
+pytest
+pytest-cov
+httpx
+ruff
+pyarrow

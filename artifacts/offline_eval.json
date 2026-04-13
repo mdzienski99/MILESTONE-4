@@ -1,0 +1,38 @@
+{
+  "overall": {
+    "popularity": {
+      "HR@10": 0.3333,
+      "NDCG@10": 0.1667
+    },
+    "item_cf": {
+      "HR@10": 0.3333,
+      "NDCG@10": 0.3333
+    }
+  },
+  "subpopulations": {
+    "cold_users": {
+      "popularity": {
+        "HR@10": 0.3333,
+        "NDCG@10": 0.1667
+      },
+      "item_cf": {
+        "HR@10": 0.3333,
+        "NDCG@10": 0.3333
+      }
+    },
+    "warm_users": {
+      "popularity": {
+        "HR@10": 0,
+        "NDCG@10": 0
+      },
+      "item_cf": {
+        "HR@10": 0,
+        "NDCG@10": 0
+      }
+    }
+  },
+  "notes": [
+    "Chronological split per user (no leakage)",
+    "Metrics: HR@10, NDCG@10"
+  ]
+}
