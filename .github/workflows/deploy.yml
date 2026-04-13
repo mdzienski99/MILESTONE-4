@@ -1,64 +1,47 @@
-#name: Deploy to Cloud Run
+name: Retrain + Publish Models
 
 on:
-  push:
-    branches: [ main ]
+  schedule:
+    - cron: '0 */6 * * *'
   workflow_dispatch:
 
-env:
-  IMAGE_NAME: recommender-api
+permissions:
+  contents: write
 
 jobs:
-  build-and-deploy:
+  retrain_publish:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-      id-token: write
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Authenticate to Google Cloud
-        uses: google-github-actions/auth@v1
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          credentials_json: ${{ secrets.GCP_SA_KEY }}
+          python-version: "3.10"
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Configure Docker for GCR
-        run: gcloud auth configure-docker gcr.io --quiet
-
-      - name: Set image tag
-        run: echo "IMAGE_TAG=gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ env.IMAGE_NAME }}:${{ github.sha }}" >> $GITHUB_ENV
-
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          push: true
-          tags: ${{ env.IMAGE_TAG }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-
-      - name: Deploy to Cloud Run
-        id: deploy
-        uses: google-github-actions/deploy-cloudrun@v2
-        with:
-          service: recommender-api
-          project_id: ${{ secrets.GCP_PROJECT_ID }}
-          image: ${{ env.IMAGE_TAG }}
-          region: us-central1
-          allow-unauthenticated: true
-          env_vars: |
-            KAFKA_BOOTSTRAP_SERVERS=${{ secrets.KAFKA_BOOTSTRAP_SERVERS }}
-            TEAM_NAME=${{ secrets.TEAM_NAME }}
-            MODEL_VERSION=v1.0
-
-      - name: Show Cloud Run URL
+      - name: Install dependencies
         run: |
-          echo "🚀 Deployed to: ${{ steps.deploy.outputs.url }}"
-          echo "API Health: ${{ steps.deploy.outputs.url }}/healthz"
-          echo "API Recommend: ${{ steps.deploy.outputs.url }}/recommend/1?k=10&model=popularity"
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Retrain models
+        run: |
+          python stream/train_models.py
+
+      - name: Publish model version
+        run: |
+          python scripts/publish_model.py
+
+      - name: Commit updated artifacts
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add artifacts/
+          if git diff --cached --quiet; then
+            echo "No artifact changes to commit"
+          else
+            git commit -m "Auto publish model version"
+            git push
+          fi
