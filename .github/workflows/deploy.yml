@@ -1,9 +1,9 @@
 name: Retrain + Publish Models
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 */6 * * *'
-  workflow_dispatch:
 
 permissions:
   contents: write
@@ -32,7 +32,7 @@ jobs:
 
       - name: Publish model version
         run: |
-          python scripts/publish_model.py
+          python -m scripts.publish_model
 
       - name: Commit updated artifacts
         run: |
