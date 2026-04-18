@@ -15,6 +15,7 @@ TRACE_PATH = os.getenv("TRACE_PATH", f"{ARTIFACT_DIR}/prediction_traces.jsonl")
 VERSION_LOG_PATH = os.getenv("VERSION_LOG_PATH", f"{ARTIFACT_DIR}/model_versions.log")
 
 KAFKA_BOOTSTRAP_SERVERS = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "localhost:9092")
+ENABLE_KAFKA = os.getenv("ENABLE_KAFKA", "true").lower() == "true"
 TEAM_NAME = os.getenv("TEAM_NAME", "team")
 
 TOPIC_WATCH = os.getenv("KAFKA_TOPIC_WATCH", f"{TEAM_NAME}.watch")

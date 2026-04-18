@@ -151,10 +151,16 @@ def append_trace(trace: dict):
 def _create_producer():
     global PRODUCER
 
+    if not ENABLE_KAFKA:
+        return None
+
     if PRODUCER is not None:
         return PRODUCER
 
     if Producer is None:
+        return None
+
+    if not KAFKA_BOOTSTRAP_SERVERS or KAFKA_BOOTSTRAP_SERVERS.strip() == "":
         return None
 
     try:
