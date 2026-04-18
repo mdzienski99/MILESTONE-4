@@ -18,6 +18,7 @@ from service.config import (
     REGISTRY_PATH,
     TRACE_PATH,
     KAFKA_BOOTSTRAP_SERVERS,
+    ENABLE_KAFKA,
     TOPIC_RECO_REQUESTS,
     TOPIC_RECO_RESPONSES,
     GIT_SHA,
