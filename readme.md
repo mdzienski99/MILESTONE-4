@@ -24,7 +24,7 @@ https://milestone-4-api.onrender.com/recommend/1?k=5&model=auto
 
 * 📄 Report: [report.pdf](./report.pdf)
 * 📊 Slides: [slides.pdf](./slides.pdf)
-* 🎥 Video: PASTE_YOUR_VIDEO_LINK_HERE
+* 🎥 Video: https://www.youtube.com/watch?v=QrzhACsgEj4 
 
 ---
 
